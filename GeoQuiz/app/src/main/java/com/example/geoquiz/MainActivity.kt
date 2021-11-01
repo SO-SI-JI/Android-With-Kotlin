@@ -1,7 +1,10 @@
 package com.example.geoquiz
 
+import android.annotation.SuppressLint
 import android.app.Activity
+import android.app.ActivityOptions
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -31,6 +34,7 @@ class MainActivity : AppCompatActivity() {
         saveInstanceState.putInt(KEY_INDEX, quizViewModel.currentIndex)
     }
 
+    @SuppressLint("RestrictedApi")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -54,10 +58,20 @@ class MainActivity : AppCompatActivity() {
             quizViewModel.moveToNext()
             updateQuestion()
         }
-        cheatButton.setOnClickListener {
+        cheatButton.setOnClickListener { view ->
             val answerIsTrue = quizViewModel.currentQuestionAnswer
             val intent = CheatActivity.newIntent(this@MainActivity, answerIsTrue)
-            startActivityForResult(intent, REQUEST_CODE_CHEAT)
+
+            //빌드 버전 비교 (M은 마시멜로우)
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                
+                // 액티비티 시작 애니메이션 추가
+                val options = ActivityOptions.makeClipRevealAnimation(view, 0, 0, view.width, view.height)
+                startActivityForResult(intent, REQUEST_CODE_CHEAT, options.toBundle())
+            }
+            else{
+                startActivityForResult(intent, REQUEST_CODE_CHEAT)
+            }
         }
         updateQuestion()
     }
