@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "C:\\Users\\jidby\\Documents\\GitHub\\Android-With-Kotlin\\BeatBox\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\list_item_sound.xml",
+        "source": "C:\\Users\\jidby\\Documents\\GitHub\\Android-With-Kotlin\\BeatBox\\app\\src\\main\\res\\layout\\list_item_sound.xml"
+    },
+    {
+        "merged": "C:\\Users\\jidby\\Documents\\GitHub\\Android-With-Kotlin\\BeatBox\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_main.xml",
+        "source": "C:\\Users\\jidby\\Documents\\GitHub\\Android-With-Kotlin\\BeatBox\\app\\src\\main\\res\\layout\\activity_main.xml"
+    }
+]
