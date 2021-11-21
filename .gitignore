@@ -1,17 +1,14 @@
 GeoQuiz/.gradle/
-GeoQuiz/local.properties
 GeoQuiz/.idea/
 GeoQuiz/build/
 GeoQuiz/captures/
 workspace.xml
 CriminalIntent/.gradle/
-CriminalIntent/local.properties
 CriminalIntent/.idea/
 CriminalIntent/build/
 CriminalIntent/captures/
 *.iml
 BeatBox\.gradle\
-BeatBox/local.properties
 BeatBox/.idea/caches/
 .DS_Store
 BeatBox/build/
@@ -19,5 +16,3 @@ BeatBox/captures/
 .externalNativeBuild
 .cxx
 local.properties
-BeatBox/.gradle/7.0.2/javaCompile/jarAnalysis.bin
-BeatBox/.gradle/7.0.2/dependencies-accessors/dependencies-accessors.lock
