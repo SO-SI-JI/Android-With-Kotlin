@@ -1,16 +1,21 @@
 package com.bignerdranch.android.beatbox
 
 import android.content.res.AssetManager
+import android.media.SoundPool
 import android.util.Log
 import java.lang.Exception
 
 private const val TAG = "BeatBox"
 private const val SOUND_FOLDER = "sample_sounds"
+private const val MAX_SOUNDS = 5
 
 // AssetManager 인스턴스 참조
 class BeatBox(private val assets: AssetManager) {
 
     val sounds: List<Sound>
+
+    // SoundPool 객체 생성
+    private val soundPool = SoundPool.Builder().setMaxStreams(MAX_SOUNDS).build()
 
     init{
         sounds = loadSounds()
