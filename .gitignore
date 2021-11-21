@@ -10,7 +10,7 @@ CriminalIntent/.idea/
 CriminalIntent/build/
 CriminalIntent/captures/
 *.iml
-BeatBox/.gradle/
+BeatBox\.gradle\
 BeatBox/local.properties
 BeatBox/.idea/caches/
 .DS_Store
