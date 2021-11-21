@@ -12,39 +12,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1c1f5d7-0de7-46ec-b933-2b5f08a8fde5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/sample_sounds/65_cjipie.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/sample_sounds/66_indios.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/sample_sounds/67_indios2.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/sample_sounds/68_indios3.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/sample_sounds/69_ohm-loko.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/sample_sounds/70_eh.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/sample_sounds/71_hruuhb.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/sample_sounds/72_houb.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/sample_sounds/73_houu.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/sample_sounds/74_jah.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/sample_sounds/75_jhuee.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/sample_sounds/76_joooaah.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/sample_sounds/77_juob.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/sample_sounds/78_jueb.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/sample_sounds/79_long-scream.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/sample_sounds/80_oaaaahmmm.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/sample_sounds/81_uehea.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/sample_sounds/82_uhraa.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/sample_sounds/83_uoh.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/sample_sounds/84_uueh.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/sample_sounds/85_jeeh.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/sample_sounds/86_oa-h.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/bignerdranch/android/beatbox/BeatBox.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/bignerdranch/android/beatbox/Sound.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/list_item_sound.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CriminalIntent/app/src/main/res/values-es/strings.xml" afterDir="false" />
-    </list>
+    <list default="true" id="c1c1f5d7-0de7-46ec-b933-2b5f08a8fde5" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
