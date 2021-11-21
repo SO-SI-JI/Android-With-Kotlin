@@ -36,6 +36,22 @@ class MainActivity : AppCompatActivity() {
     // list_item_sound.xml과 연결되는 SoundHolder 생성
     private inner class SoundHolder(private val binding: ListItemSoundBinding): RecyclerView.ViewHolder(binding.root){
 
+
+        init {
+
+            // 뷰모델 인스턴스 생성, 초기화
+            binding.viewModel = SoundViewModel()
+        }
+
+        fun bind(sound: Sound){
+            binding.apply {
+                viewModel?.sound = sound
+                
+                // RecyclerView에 포함된 레이아웃을 즉각 변경해야함
+                // RecyclerView와 RecyclerView.Adapter가 즉시 동기화되어 스크롤할때 매끄럽게 보임
+                executePendingBindings()
+            }
+        }
     }
 
     // SoundHolder와 연결되는 어댑터 생성
@@ -51,7 +67,10 @@ class MainActivity : AppCompatActivity() {
         }
 
         override fun onBindViewHolder(holder: SoundHolder, position: Int) {
-
+            
+            // 뷰모델의 각 Sound 인스턴스를 SoundHolder 인스턴스와 연결
+            val sound = sounds[position]
+            holder.bind(sound)
         }
 
         override fun getItemCount() = sounds.size
