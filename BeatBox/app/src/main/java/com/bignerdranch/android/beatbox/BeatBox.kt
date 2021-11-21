@@ -29,6 +29,11 @@ class BeatBox(private val assets: AssetManager) {
         }
     }
 
+    // 음원 재생이 끝나면 SoundPool을 리소스 해제함
+    fun release(){
+        soundPool.release()
+    }
+
     // Asset의 파일 내역 얻기
     private fun loadSounds(): List<Sound>{
 
