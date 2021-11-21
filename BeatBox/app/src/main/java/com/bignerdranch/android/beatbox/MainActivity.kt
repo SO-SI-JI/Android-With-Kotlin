@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
         init {
 
             // 뷰모델 인스턴스 생성, 초기화
-            binding.viewModel = SoundViewModel()
+            binding.viewModel = SoundViewModel(beatBox)
         }
 
         fun bind(sound: Sound){
