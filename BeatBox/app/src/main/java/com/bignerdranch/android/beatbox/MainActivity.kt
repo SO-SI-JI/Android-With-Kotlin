@@ -36,6 +36,7 @@ class MainActivity : AppCompatActivity() {
     // list_item_sound.xml과 연결되는 SoundHolder 생성
     private inner class SoundHolder(private val binding: ListItemSoundBinding): RecyclerView.ViewHolder(binding.root){
 
+
         init {
 
             // 뷰모델 인스턴스 생성, 초기화
