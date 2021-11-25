@@ -33,6 +33,11 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        beatBox.release()
+    }
+
     // list_item_sound.xml과 연결되는 SoundHolder 생성
     private inner class SoundHolder(private val binding: ListItemSoundBinding): RecyclerView.ViewHolder(binding.root){
 
@@ -40,7 +45,7 @@ class MainActivity : AppCompatActivity() {
         init {
 
             // 뷰모델 인스턴스 생성, 초기화
-            binding.viewModel = SoundViewModel()
+            binding.viewModel = SoundViewModel(beatBox)
         }
 
         fun bind(sound: Sound){
