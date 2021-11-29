@@ -54,15 +54,36 @@ class NerdLauncherActivity : AppCompatActivity() {
         recyclerView.adapter = ActivityAdapter(activities)
     }
 
-    private class ActivityHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+    private class ActivityHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener{
         private val nameTextView = itemView as TextView
         private lateinit var resolveInfo: ResolveInfo
+
+        init {
+            nameTextView.setOnClickListener(this)
+        }
 
         fun bindActivity(resolveInfo: ResolveInfo){
             this.resolveInfo = resolveInfo
             val packageManager = itemView.context.packageManager
             val appName = resolveInfo.loadLabel(packageManager).toString()
             nameTextView.text =appName
+        }
+
+        override fun onClick(view: View) {
+            
+            // 액티비티의 패키지 이름과 클래스 이름을 가져옴
+            val activityInfo = resolveInfo.activityInfo  
+
+            // 액션을 전달하여 프로그래머의 의도를 명확하게 알려줌
+            val intent = Intent(Intent.ACTION_MAIN).apply {
+                setClassName(activityInfo.applicationInfo.packageName, activityInfo.name)
+                
+                // 새로운 Task로 시작시키는 플래그를 인텐트에 추가하기
+                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            }
+
+            val context = view.context
+            context.startActivity(intent)
         }
     }
 
