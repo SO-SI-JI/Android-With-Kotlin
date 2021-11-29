@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bignerdranch.android.photogallery.api.FlickrApi
 import retrofit2.Retrofit
+import retrofit2.converter.scalars.ScalarsConverterFactory
 
 class PhotoGalleryFragment : Fragment(){
     private lateinit var photoRecyclerView: RecyclerView
@@ -16,8 +17,11 @@ class PhotoGalleryFragment : Fragment(){
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
 
+        // Retrofit이 응답을 문자열로 역직렬화하도록 Retrofit 객체를 생성할 때 변환기를 지정
+        // 플리커 응답을 String 객체로 역직렬화
         val retrofit: Retrofit = Retrofit.Builder()
             .baseUrl("https://www.flickr.com/")
+            .addConverterFactory(ScalarsConverterFactory.create())
             .build()
 
         val flickrApi : FlickrApi = retrofit.create(FlickrApi::class.java)
