@@ -166,6 +166,7 @@ class CrimeFragment : Fragment(), DatePickerFragment.Callbacks{
     }
 
     override fun onDetach() {
+        super.onDetach()
         requireActivity().revokeUriPermission(photoUri, Intent.FLAG_GRANT_WRITE_URI_PERMISSION)
     }
 
