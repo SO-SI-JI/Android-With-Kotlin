@@ -48,11 +48,11 @@ class PhotoGalleryFragment : Fragment(){
         
         // FlickrFetchr는 PhotoGallery 앱의 네트워크 관련 코드를 가짐
         // fetchContents는 네트워크 요청을 큐에 넣고 응답 결과를 LiveData로 반환
-        val flickrLiveData: LiveData<String> = FlickrFetchr().fetchPhotos()
+        val flickrLiveData: LiveData<List<GalleryItem>> = FlickrFetchr().fetchPhotos()
         flickrLiveData.observe(
             this,
-            Observer { responseString ->
-                Log.d(TAG, "Response Received: $responseString")
+            Observer { galleryItems ->
+                Log.d(TAG, "Response Received: $galleryItems")
             }
         )
     }
