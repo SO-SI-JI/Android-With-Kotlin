@@ -48,7 +48,7 @@ class PhotoGalleryFragment : Fragment(){
         
         // FlickrFetchr는 PhotoGallery 앱의 네트워크 관련 코드를 가짐
         // fetchContents는 네트워크 요청을 큐에 넣고 응답 결과를 LiveData로 반환
-        val flickrLiveData: LiveData<String> = FlickrFetchr().fetchContents()
+        val flickrLiveData: LiveData<String> = FlickrFetchr().fetchPhotos()
         flickrLiveData.observe(
             this,
             Observer { responseString ->

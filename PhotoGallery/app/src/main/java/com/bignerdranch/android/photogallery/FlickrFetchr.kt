@@ -27,9 +27,9 @@ class FlickrFetchr {
         flickrApi = retrofit.create(FlickrApi::class.java)
     }
 
-    fun fetchContents(): LiveData<String> {
+    fun fetchPhotos(): LiveData<String> {
         val responseLiveData: MutableLiveData<String> = MutableLiveData()
-        val flickrRequest: Call<String> = flickrApi.fetchContents()
+        val flickrRequest: Call<String> = flickrApi.fetchPhotos()
 
         flickrRequest.enqueue(object : Callback<String> {
             override fun onFailure(call: Call<String>, t: Throwable) {
