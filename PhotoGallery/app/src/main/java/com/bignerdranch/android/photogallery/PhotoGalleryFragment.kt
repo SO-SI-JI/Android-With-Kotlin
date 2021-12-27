@@ -173,6 +173,9 @@ class PhotoGalleryFragment : Fragment(){
                     return false
                 }
             })
+            setOnSearchClickListener {
+                searchView.setQuery(photoGalleryViewModel.searchTerm, false)
+            }
         }
     }
 
@@ -183,8 +186,6 @@ class PhotoGalleryFragment : Fragment(){
                 true
             }
             else -> super.onOptionsItemSelected(item)
-            }
         }
     }
-
 }
