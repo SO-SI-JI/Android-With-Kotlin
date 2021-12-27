@@ -8,7 +8,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.bignerdranch.android.photogallery.api.FlickrApi
 import com.bignerdranch.android.photogallery.api.FlickrResponse
+import com.bignerdranch.android.photogallery.api.PhotoInterceptor
 import com.bignerdranch.android.photogallery.api.PhotoResponse
+import okhttp3.OkHttpClient
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
@@ -24,11 +26,16 @@ class FlickrFetchr {
 
     init {
 
+        val client = OkHttpClient.Builder()
+            .addInterceptor(PhotoInterceptor())
+            .build()
+
         // Retrofit이 응답을 문자열로 역직렬화하도록 Retrofit 객체를 생성할 때 변환기를 지정
         // 플리커 응답을 String 객체로 역직렬화
         val retrofit: Retrofit = Retrofit.Builder()
             .baseUrl("https://www.flickr.com/")
             .addConverterFactory(GsonConverterFactory.create())
+            .client(client)
             .build()
 
         flickrApi = retrofit.create(FlickrApi::class.java)
