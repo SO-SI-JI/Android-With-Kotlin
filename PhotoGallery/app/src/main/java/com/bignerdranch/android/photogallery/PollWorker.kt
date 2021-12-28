@@ -11,7 +11,13 @@ class PollWorker(val context: Context, workerParams: WorkerParameters): Worker(c
     
     // doWork() 함수는 백그라운드 스레드에서 호출 -> 오래 실행되는 (최대 10분) 작업을 할 수 있다.
     override fun doWork(): Result {
-        Log.i(TAG, "Work request triggered")
+        val query = QueryPreferences.getStoredQuery(context)
+        val lastResultId = QueryPreferences.getLastResultId(context)
+        val items: List<GalleryItem> = if (query.isEmpty()){
+            FlickrFetchr().fetchPhotosRequest().execute().body()?.photos?.galleryItems
+        } else {
+            FlickrFetchr().searchPhotosRequest(query).execute().body()?.photos?.galleryItems
+        } ?: emptyList()
         
         // 작업이 성공했음
         return Result.success()
