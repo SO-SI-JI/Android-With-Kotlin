@@ -84,7 +84,7 @@ class PhotoGalleryFragment : Fragment(){
         lifecycle.addObserver(thumbnailDownloader.fragmentLifecycleObserver)
 
         
-        // 작업을 실행하기 위해 충족되어야 하는 특정 제약 조건 -> 네트워크 타입
+/*        // 작업을 실행하기 위해 충족되어야 하는 특정 제약 조건 -> 네트워크 타입
         val constraints = Constraints.Builder().setRequiredNetworkType(NetworkType.UNMETERED).build()
 
         val workRequest = OneTimeWorkRequest
@@ -93,7 +93,7 @@ class PhotoGalleryFragment : Fragment(){
             .bulid()
 
         WorkManager.getInstance()
-            .enqueue(workRequest)
+            .enqueue(workRequest)*/
     }
 
     override fun onCreateView(
@@ -193,6 +193,15 @@ class PhotoGalleryFragment : Fragment(){
                 searchView.setQuery(photoGalleryViewModel.searchTerm, false)
             }
         }
+
+        val toggleItem = menu.findItem(R.id.menu_item_toggle_polling)
+        val isPolling = QueryPreferences.isPolling(requireContext())
+        val toggleItemTitle = if (isPolling){
+            R.string.stop_polling
+        } else {
+            R.string.start_polling
+        }
+        toggleItem.setTitle(toggleItemTitle)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
