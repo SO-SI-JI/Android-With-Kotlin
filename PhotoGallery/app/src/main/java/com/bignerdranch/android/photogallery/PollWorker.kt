@@ -18,7 +18,19 @@ class PollWorker(val context: Context, workerParams: WorkerParameters): Worker(c
         } else {
             FlickrFetchr().searchPhotosRequest(query).execute().body()?.photos?.galleryItems
         } ?: emptyList()
-        
+
+        if(items.isEmpty()){
+            return Result.success()
+        }
+
+        val resultId = items.first().id
+        if (resultId == lastResultId){
+            Log.i(TAG, "Got an old result: $resultId")
+        } else {
+            Log.i(TAG, "Got a new result: $resultId")
+            QueryPreferences.setLastResultId(context, resultId)
+        }
+
         // 작업이 성공했음
         return Result.success()
     }
