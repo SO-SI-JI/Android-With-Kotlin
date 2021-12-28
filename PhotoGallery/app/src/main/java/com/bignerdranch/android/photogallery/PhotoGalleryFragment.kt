@@ -17,6 +17,10 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.work.Constraints
+import androidx.work.NetworkType
+import androidx.work.OneTimeWorkRequest
+import androidx.work.WorkManager
 import com.bignerdranch.android.photogallery.api.FlickrApi
 import retrofit2.Call
 import retrofit2.Callback
@@ -78,6 +82,18 @@ class PhotoGalleryFragment : Fragment(){
         }
 
         lifecycle.addObserver(thumbnailDownloader.fragmentLifecycleObserver)
+
+        
+        // 작업을 실행하기 위해 충족되어야 하는 특정 제약 조건 -> 네트워크 타입
+        val constraints = Constraints.Builder().setRequiredNetworkType(NetworkType.UNMETERED).build()
+
+        val workRequest = OneTimeWorkRequest
+            .Builder(PollWorker::class.java)
+            .setConstraints(constraints)
+            .bulid()
+
+        WorkManager.getInstance()
+            .enqueue(workRequest)
     }
 
     override fun onCreateView(
