@@ -50,18 +50,30 @@ class PollWorker(val context: Context, workerParams: WorkerParameters): Worker(c
             .setAutoCancel(true)
             .build()
 
-        val notificationManager = NotificationManagerCompat.from(context)
-        notificationManager.notify(0, notification)
+        //val notificationManager = NotificationManagerCompat.from(context)
+        //notificationManager.notify(0, notification)
         
         // 새로운 검색 결과를 게시할 준비가 되었음을 관심있는 컴포넌트에 알리는 브로드캐스트 인텐트를 전송
-        context.sendBroadcast(Intent(ACTION_SHOW_NOTIFICATION), PERM_PRIVATE)
+        //context.sendBroadcast(Intent(ACTION_SHOW_NOTIFICATION), PERM_PRIVATE)
+
+        showBackgroudNotification(0, notification)
 
         // 작업이 성공했음
         return Result.success()
     }
 
+    private fun showBackgroundNotification(requestCode: Int, notification: Notification){
+        val intent = Intent(ACTION_SHOW_NOTIFICATION).apply {
+            putExtra(REQUEST_CODE, requestCode)
+            putExtra(NOTIFICATION, notification)
+        }
+        context.sendOrderedBroadcast(intent, PERM_PRIVATE)
+    }
+
     companion object {
         const val ACTION_SHOW_NOTIFICATION = "com.bignerdranch.android.photogallery.SHOW_NOTIFICATION"
         const val PERM_PRIVATE = "com.bignerdranch.android.photogallery.PRIVATE"
+        const val REQUEST_CODE = "REQUEST_CODE"
+        const val NOTIFICATION = "NOTIFICATION"
     }
 }
