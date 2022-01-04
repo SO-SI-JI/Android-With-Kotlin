@@ -54,7 +54,7 @@ class PollWorker(val context: Context, workerParams: WorkerParameters): Worker(c
         notificationManager.notify(0, notification)
         
         // 새로운 검색 결과를 게시할 준비가 되었음을 관심있는 컴포넌트에 알리는 브로드캐스트 인텐트를 전송
-        context.sendBroadcast(Intent(ACTION_SHOW_NOTIFICATION))
+        context.sendBroadcast(Intent(ACTION_SHOW_NOTIFICATION), PERM_PRIVATE)
 
         // 작업이 성공했음
         return Result.success()
@@ -62,5 +62,6 @@ class PollWorker(val context: Context, workerParams: WorkerParameters): Worker(c
 
     companion object {
         const val ACTION_SHOW_NOTIFICATION = "com.bignerdranch.android.photogallery.SHOW_NOTIFICATION"
+        const val PERM_PRIVATE = "com.bignerdranch.android.photogallery.PRIVATE"
     }
 }
