@@ -19,7 +19,8 @@
         android:theme="@style/Theme.PhotoGallery">
         <activity
             android:name=".PhotoPageActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:configChanges="keyboardHidden|orientation|screenSize"/>
         <activity
             android:name=".PhotoGalleryActivity"
             android:exported="true">
