@@ -1,11 +1,13 @@
 package com.bignerdranch.android.photogallery
 
+import android.annotation.SuppressLint
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebView
+import android.webkit.WebViewClient
 
 private const val ARG_URI = "photo_page_url"
 
@@ -19,6 +21,7 @@ class PhotoPageFragment: VisibleFragment() {
         uri = arguments?.getParcelable(ARG_URI) ?: Uri.EMPTY
     }
 
+    @SuppressLint("SetJavaScriptEnabled")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -27,6 +30,9 @@ class PhotoPageFragment: VisibleFragment() {
         val view = inflater.inflate(R.layout.fragment_photo_gallery, container, false)
 
         webView = view.findViewById(R.id.web_view)
+        webView.settings.javaScriptEnabled = true
+        webView.webViewClient = WebViewClient()
+        webView.loadUrl(uri.toString())
         return view
     }
 
