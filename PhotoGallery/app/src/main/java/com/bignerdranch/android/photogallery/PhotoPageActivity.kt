@@ -12,11 +12,11 @@ class PhotoPageActivity : AppCompatActivity() {
         setContentView(R.layout.activity_photo_page)
 
         val fm = supportFragmentManager
-        val currentFragment = fm.findFragmentById(R.id.fragmentContainer)
+        val currentFragment = fm.findFragmentById(R.id.fragment_container)
 
         if (currentFragment == null){
             val fragment = PhotoPageFragment.newInstance(intent.data!!)
-            fm.beginTransaction().add(R.id.fragmentContainer, fragment).commit()
+            fm.beginTransaction().add(R.id.fragment_container, fragment).commit()
         }
     }
 
