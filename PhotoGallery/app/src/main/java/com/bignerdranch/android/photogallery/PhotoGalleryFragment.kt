@@ -1,5 +1,6 @@
 package com.bignerdranch.android.photogallery
 
+import android.content.Intent
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
@@ -121,8 +122,25 @@ class PhotoGalleryFragment : VisibleFragment(){
         fun newInstance() = PhotoGalleryFragment()
     }
 
-    private class PhotoHolder(private val itemImageView: ImageView): RecyclerView.ViewHolder(itemImageView){
+    // inner 키워드를 추가하면 외부클래스의 속성과 함수를 바로 사용할 수 있음
+    private inner class PhotoHolder(private val itemImageView: ImageView): RecyclerView.ViewHolder(itemImageView), View.OnClickListener{
+
+        private lateinit var galleryItem: GalleryItem
+
+        init {
+            itemView.setOnClickListener(this)
+        }
+
         val bindDrawable: (Drawable) -> Unit = itemImageView::setImageDrawable
+
+        fun bindGalleryItem(item: GalleryItem){
+            galleryItem = item
+        }
+
+        override fun onClick(view: View) {
+            val intent = Intent(Intent.ACTION_VIEW, galleryItem.photoPageUri)
+            startActivity(intent)
+        }
     }
 
     private inner class PhotoAdapter(private val galleryItems: List<GalleryItem>): RecyclerView.Adapter<PhotoHolder>(){
