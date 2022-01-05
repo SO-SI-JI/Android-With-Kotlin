@@ -154,6 +154,9 @@ class PhotoGalleryFragment : VisibleFragment(){
 
         override fun onBindViewHolder(holder: PhotoHolder, position: Int) {
             val galleryItem = galleryItems[position]
+            
+            // GalleryItem에 PhotoHolder를 바인딩
+            holder.bindGalleryItem(galleryItem)
             val placeholder: Drawable = ContextCompat.getDrawable(
                 requireContext(),
                 R.drawable.ic_launcher_background
